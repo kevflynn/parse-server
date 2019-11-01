@@ -1,20 +1,6 @@
 'use strict';
-import defaults from './defaults';
-import { WinstonLoggerAdapter } from './Adapters/Logger/WinstonLoggerAdapter';
-import { LoggerController } from './Controllers/LoggerController';
 
-function defaultLogger() {
-  const options = {
-    logsFolder: defaults.logsFolder,
-    jsonLogs: defaults.jsonLogs,
-    verbose: defaults.verbose,
-    silent: defaults.silent,
-  };
-  const adapter = new WinstonLoggerAdapter(options);
-  return new LoggerController(adapter, null, options);
-}
-
-let logger = defaultLogger();
+let logger;
 
 export function setLogger(aLogger) {
   logger = aLogger;
